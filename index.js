@@ -47,10 +47,11 @@ Use the copy function below to do the following:
 */
 
 function copy(oldArray){
-    return oldArray.slice();
+    // return oldArray.slice();
     /*your code here*/
+    return [...oldArray];
 }    
-let newFlavorList = copy(originalFlavors);
+// let newFlavorList = copy(originalFlavors);
 //console.log(newFlavorList);
 
 
@@ -90,9 +91,10 @@ Use the addFlavor function below to do the following:
 
 
 function addFlavor(aryOldFlavors, strNewFlavor){
-   return aryOldFlavors.unshift(strNewFlavor);
+    aryOldFlavors.unshift(strNewFlavor);
+   return aryOldFlavors;
 }
-  addFlavor(newFlavorList, "Rainbow Sherbert");
+//   addFlavor(originalFlavors, "Rainbow Sherbert");
 //  console.log(is31Flavors(newFlavorList));
 //  console.log(newFlavorList.length);
 //  console.log(newFlavorList);
@@ -111,11 +113,12 @@ Use the removeLastFlavor function below to do the following:
 
 function removeLastFlavor(aryOldFlavors){
    /*your code here*/
-   return aryOldFlavors.pop();
+   aryOldFlavors.pop();
+   return aryOldFlavors;
 }
 //  console.log(is31Flavors(newFlavorList));
 //  console.log(newFlavorList.length);
-removeLastFlavor(newFlavorList);
+// removeLastFlavor(newFlavorList);
 //  console.log(is31Flavors(newFlavorList));
 //  console.log(newFlavorList.length);
 //  console.log(newFlavorList);
@@ -155,21 +158,22 @@ Use the removeFlavorByName function below to do the following:
     HINT: You can use .splice() for this
 */
 
-function removeFlavorByName(aryInput, strRemove){
+// function removeFlavorByName(aryInput, strRemove){
+//     /*your code here*/
+//     return aryInput.splice(aryInput.indexOf(strRemove), 1);
+// }
+
+function removeFlavorByName(array, flavor){
     /*your code here*/
-    return aryInput.splice(aryInput.indexOf(strRemove), 1);
+   for(let i = 0; i < array.length; i++){
+       if (array[i] === flavor) {
+           array.splice(i, 1);
+       }
+   }
+   return array;
 }
-//  let i = (originalFlavors.indexOf("Rocky Road"));
-//  console.log(originalFlavors[i]);
-removeFlavorByName(originalFlavors, "Rocky Road");
-//  console.log(is31Flavors(originalFlavors));
-//  console.log(originalFlavors.length);
-//  console.log(originalFlavors);
 
-
-removeFlavorByName(originalFlavors, "Rocky Road");
-
-
+// removeFlavorByName(originalFlavors, "Rocky Road");
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 7: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 July 7th is "World Chocolate Day" and Baskin Robins wants to create promotional materials highlighting all of their chocolate flavors. 
@@ -191,9 +195,18 @@ Use the filterByWord function below to do the following:
     DO NOT USE ADVANCED ARRAY METHODS (i.e. .filter) to solve this problem. 
 */
 
-function filterByWord(/*your code here*/){
+function filterByWord(array, string){
     /*your code here*/
-}
+    let returnVal = [];
+    for(let i = 0; i < array.length; i++){
+        if (array[i].includes(string)) {
+            returnVal.push(array[i]);
+        }
+    } 
+    return returnVal;
+} 
+// console.log(filterByWord(originalFlavors, "Chocolate"));
+
 
 
 /* 💪💪💪💪💪🧁🍦🍨 STRETCH 🍨🍦🍫💪💪💪💪💪*/ 
