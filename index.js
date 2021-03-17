@@ -50,8 +50,8 @@ function copy(oldArray){
     return oldArray.slice();
     /*your code here*/
 }    
-let newArray = copy(originalFlavors);
-//console.log(newArray);
+let newFlavorList = copy(originalFlavors);
+//console.log(newFlavorList);
 
 
 
@@ -71,10 +71,10 @@ For Example: is31Flavors(originalFlavors) will return true if your code is worki
 function is31Flavors(aryInput){
    return (aryInput.length === 31);
 }
-// console.log(is31Flavors(newArray));
-// newArray.pop();
-// console.log(newArray.length)
-// console.log(is31Flavors(newArray));
+// console.log(is31Flavors(newFlavorList));
+// newFlavorList.pop();
+// console.log(newFlavorList.length)
+// console.log(is31Flavors(newFlavorList));
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 3: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Corporate has come to you with an idea for a new flavor: Rainbow Sherbert! They think this will be a game changer. You need to modify the array to include this flavor. 
@@ -90,10 +90,12 @@ Use the addFlavor function below to do the following:
 
 
 function addFlavor(aryOldFlavors, strNewFlavor){
-   return aryOldFlavors.push(strNewFlavor);
+   return aryOldFlavors.unshift(strNewFlavor);
 }
-addFlavor(newArray, "Rainbow Sherbert!");
-console.log(newArray);
+  addFlavor(newFlavorList, "Rainbow Sherbert");
+//  console.log(is31Flavors(newFlavorList));
+//  console.log(newFlavorList.length);
+//  console.log(newFlavorList);
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 4: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -107,9 +109,16 @@ Use the removeLastFlavor function below to do the following:
     For example: running removeLastFlavor(originalFlavors) would return ["Rainbow Sherbert", "Banana Nut Fudge",..."Vanilla"]
 */
 
-function removeLastFlavor(/*your code here*/){
+function removeLastFlavor(aryOldFlavors){
    /*your code here*/
+   return aryOldFlavors.pop();
 }
+//  console.log(is31Flavors(newFlavorList));
+//  console.log(newFlavorList.length);
+removeLastFlavor(newFlavorList);
+//  console.log(is31Flavors(newFlavorList));
+//  console.log(newFlavorList.length);
+//  console.log(newFlavorList);
 
 
 
@@ -124,9 +133,11 @@ Use the getFlavorByIndex function below to do the following:
     For example: running getFlavorByIndex(originalFlavors, 2) would return "Black Walnut", assuming Rainbow Sherbert has been added successfully
 */
 
-function getFlavorByIndex(/*your code here*/){
+function getFlavorByIndex(aryFlavors, intIndex){
     /*your code here*/
+    return aryFlavors[intIndex];
 }
+// console.log(getFlavorByIndex(originalFlavors, 2));
 
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -144,9 +155,19 @@ Use the removeFlavorByName function below to do the following:
     HINT: You can use .splice() for this
 */
 
-function removeFlavorByName(/*your code here*/){
+function removeFlavorByName(aryInput, strRemove){
     /*your code here*/
+    return aryInput.splice(aryInput.indexOf(strRemove), 1);
 }
+//  let i = (originalFlavors.indexOf("Rocky Road"));
+//  console.log(originalFlavors[i]);
+removeFlavorByName(originalFlavors, "Rocky Road");
+//  console.log(is31Flavors(originalFlavors));
+//  console.log(originalFlavors.length);
+//  console.log(originalFlavors);
+
+
+removeFlavorByName(originalFlavors, "Rocky Road");
 
 
 
