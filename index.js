@@ -229,11 +229,11 @@ function getAverageWordLength(array){
      for (let i = 0; i < array.length; i++) {
         let tmpArray = array[i].split(" ");
         intWords += tmpArray.length;
-    
+     }
     return (intWords / array.length);
 }
 
-console.log(getAverageWordLength(originalFlavors));
+// console.log(getAverageWordLength(originalFlavors));
 
 
 /* 💪💪💪💪💪💪💪💪💪💪 STRETCH 2: 💪💪💪💪💪💪💪💪💪
@@ -247,11 +247,6 @@ Use the getRandomFlavors function and new arrays below to do the following:
 
     For example: getRandomFlavors(originalFlavors, newFlavors, seasonalFlavors, regionalFlavors) might return ["Strawberry Cheesecake", "Eggnog,"..."Chocolate"].
 */
-
-
-function getRandomFlavors(/*code here*/){
-    /*code here*/
-}
 
 // NEW DATA ARRAYS FOR STRETCH 2 ⬇️
 const newFlavors = [
@@ -333,6 +328,29 @@ const regionalFlavors = [
     "Chocolate Chocolate Chip Cheesecake",
     "Caramel 'n' Cookies"
 ]
+
+function getRandomFlavors(originalFlavors, seasonalFlavors, regionalFlavors){
+    let randomFlavors = [];
+    let flavorCategories = ["originalFlavors", "seasonalFlavors", "regionalFlavors"];
+//First, dump the flavors from all 4 categories into randomFlavors
+    for (let i = 0; i < flavorCategories.length; i++) {
+        let thisCategory = flavorCategories[i];
+        for (let j = 0; j < thisCategory.length; j++) {
+            randomFlavors.push(thisCategory[j]);
+        }
+    }
+    console.log(randomFlavors);
+//Next ramdomly remove flavors from randomFlavors until only 31 left
+    while (randomFlavors.length > 31) {
+        let zapme = (Math.floor(Math.random()) * randomFlavors.length);
+        randomFlavors.splice(zapme, 1);
+    }
+    return randomFlavors
+}
+
+console.log(getRandomFlavors(originalFlavors, seasonalFlavors, regionalFlavors))
+console.log(getRandomFlavors(originalFlavors, seasonalFlavors, regionalFlavors).length)
+
 
 
 
